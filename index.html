@@ -91,14 +91,13 @@
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Hover callback</h4>
         <pre><code>&lt;multiple-date-picker day-hover="logInfos"/&gt;</code></pre>
         <p>Same options as before</p>
-        <pre><code>
-          $scope.logInfos = function(event, date) {
-            event.preventDefault() // prevent the date.hover to be toggled
-            console.log(date.valueOf()) //will give you the timestamp
-            if(event.type == 'mouseover') {
-              //we're on it!
-            }
-          }
+        <pre><code>$scope.logInfos = function(event, date) {
+    event.preventDefault() // prevent the date.hover to be toggled
+    console.log(date.valueOf()) //will give you the timestamp
+    if(event.type == 'mouseover') {
+      //we're on it!
+    }
+  }
         </code></pre>
         <div><multiple-date-picker day-hover="doDate"/></div>
         <small>This will be showed to the web console</small>
