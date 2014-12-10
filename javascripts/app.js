@@ -3,7 +3,11 @@ var app = angular.module('demoApp', ['multipleDatePicker']);
 app.controller('demoController', ['$scope', function($scope){
   $scope.logInfos = function(time, selected) {
     alert(moment(time).format('YYYY-M-DD') + ' has been ' + (selected ? '' : 'un') + 'selected');
-  }
+  };
+
+  $scope.logMonthChanged = function(newMonth, oldMonth){
+    alert('new month : ' + newMonth.format('YYYY-M-DD') + ' || old month : ' + oldMonth.format('YYYY-M-DD'));
+  };
 
   $scope.doDate = function(event, date){
     if(event.type == 'click') {

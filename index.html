@@ -75,7 +75,7 @@
         <p>You can give option directly in the html.</p>
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Click callback</h4>
         <p class="warning">Option "callback" has been deprecated, please use "day-click" instead</p>
-        <p>The callback will be called everytime a date is clicked. <strong>Be aware that the date (timestamp) given to the callback is a day at midnight</strong>.</p>
+        <p>The callback will be called everytime a date is clicked. <strong>Be aware that the date given to the callback is a day at midnight</strong>.</p>
         <p>This exemple shows how to pass a scope function that will prompt an alert with infos.</p>
         <pre><code>&lt;multiple-date-picker day-click="logInfos"/&gt;</code></pre>
         <p>The <code>logInfos</code> function will be called with a preventable event and the moment object:</p>
@@ -84,8 +84,7 @@
     console.log(date.valueOf()) //will give you the timestamp
     //reproduce the standard behavior
     date.selected = !date.selected
-}
-        </code></pre>
+}</code></pre>
         <div><multiple-date-picker day-click="doDate"/></div>
         <hr>
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Hover callback</h4>
@@ -97,10 +96,21 @@
     if(event.type == 'mouseover') {
       //we're on it!
     }
-  }
-        </code></pre>
+  }</code></pre>
         <div><multiple-date-picker day-hover="doDate"/></div>
         <small>This will be showed to the web console</small>
+        <hr>
+
+        <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Month changed callback</h4>
+        <p>The callback will be called everytime you change month (previous or next month). <strong>Be aware that newMonth and oldMonth given to the callback is first day of month at midnight</strong>.</p>
+        <p>This exemple shows how to pass a scope function that will prompt an alert with infos.</p>
+        <pre><code>&lt;multiple-date-picker month-changed="logMonthChanged"/&gt;</code></pre>
+        
+        <pre><code>$scope.logMonthChanged = function(newMonth, oldMonth){
+    alert('new month : ' + newMonth.format('YYYY-M-DD') + ' || old month : ' + oldMonth.format('YYYY-M-DD'));
+};</code></pre>
+        <div><multiple-date-picker month-changed="logMonthChanged"/></div>
+
         <hr>
 
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Days-off</h4>
