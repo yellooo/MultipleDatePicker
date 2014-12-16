@@ -62,7 +62,7 @@
           <pre><code>&lt;div&gt;
   &lt;multiple-date-picker/&gt;
 &lt;/div&gt;</code></pre>
-<div><multiple-date-picker/></div>
+<div><multiple-date-picker sunday-first-day="true"/></div>
           <br>
           <p>It will use the max width of it's parent, so If you want to reduce it specify a width (or use Bootstrap/Foundation).</p>
           <pre><code>&lt;div style="width:50%"&gt;
@@ -72,7 +72,18 @@
         </section>
         <hr>
         <h3><a class="anchor"><span class="octicon octicon-link"></span></a>Add some options</h3>
-        <p>You can give option directly in the html.</p>
+        <p>You can give options directly in the html.</p>
+        <h4><a class="anchor"><span class="octicon octicon-link"></span></a>First day of week</h4>
+        <p>By default Monday will be the first day of week, but you can set calendar to use Sunday as first day of week</p>
+        <pre><code>&lt;!-- default behavior : monday as first day--&gt;
+&lt;multiple-date-picker /&gt;</code></pre>        
+        <div><multiple-date-picker/></div>
+        <br/>
+        <p>Now we define Sunday as the first day of week</p>
+        <pre><code>&lt;!-- change behavior : sunday as first day--&gt;
+&lt;multiple-date-picker sunday-first-day="true" /&gt;</code></pre>        
+        <div><multiple-date-picker sunday-first-day="true"/></div>
+        <hr>
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Click callback</h4>
         <p class="warning">Option "callback" has been deprecated, please use "day-click" instead</p>
         <p>The callback will be called everytime a date is clicked. <strong>Be aware that the date given to the callback is a day at midnight</strong>.</p>
