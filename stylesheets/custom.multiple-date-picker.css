@@ -1,0 +1,15 @@
+.picker-day.holiday:not(.picker-selected){
+    background-color: #00ffa2;
+    color: #fff;
+}
+
+.picker-day.holiday.picker-off{
+    background-color: #00a267;
+    color: #fff;
+    cursor: default;
+}
+
+.picker-day.birthday:not(.picker-selected){
+    background-color: #ded100;
+    color: #000;
+}
