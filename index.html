@@ -13,7 +13,6 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript" src="javascripts/angular.min.js"></script>
-    <script type="text/javascript" src="javascripts/lodash.min.js"></script>
     <script type="text/javascript" src="javascripts/moment.min.js"></script>
     <script type="text/javascript" src="javascripts/multipleDatePicker.min.js"></script>
     <script type="text/javascript" src="javascripts/app.js"></script>
@@ -264,6 +263,29 @@
         <pre><code>&lt;multiple-date-picker disallow-go-futur-months="true"/&gt;</code></pre>
         <div>
             <multiple-date-picker disallow-go-futur-months="true"/>
+        </div>
+        <hr>
+
+        <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Emit reset</h4>
+
+        <p>You can reset calendar using the factory multipleDatePickerBroadcast</p>
+        <p>
+            <div class="clickable" ng-click="clicReset()">click me to reset keeping daysSelected (clicReset)</div>
+            <div class="clickable" ng-click="clicResetFull()">click me to reset without keeping daysSelected (clicResetFull)</div>
+        </p>
+
+        <pre><code>$scope.clicReset = function(){
+    multipleDatePickerBroadcast.resetOrder('myId');
+};
+
+$scope.clicResetFull = function(){
+    $scope.selectedDays2 = []; //trigger a reset today but now is deprecated
+    multipleDatePickerBroadcast.resetOrder('myId');
+};</code></pre>
+
+        <pre><code>&lt;multiple-date-picker calendar-id="'myId'" days-selected="selectedDays2"/&gt;</code></pre>
+        <div>
+            <multiple-date-picker calendar-id="'myId'" days-selected="selectedDays2"/>
         </div>
         <hr>
 

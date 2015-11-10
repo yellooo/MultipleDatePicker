@@ -1,6 +1,6 @@
 var app = angular.module('demoApp', ['multipleDatePicker']);
 
-app.controller('demoController', ['$scope', function ($scope) {
+app.controller('demoController', ['$scope', 'multipleDatePickerBroadcast', function ($scope, multipleDatePickerBroadcast) {
     $scope.logInfos = function (time, selected) {
         alert(moment(time).format('YYYY-M-DD') + ' has been ' + (selected ? '' : 'un') + 'selected');
     };
@@ -17,6 +17,15 @@ app.controller('demoController', ['$scope', function ($scope) {
         }
     };
 
+    $scope.clicReset = function(){
+        multipleDatePickerBroadcast.resetOrder('myId');
+    };
+
+    $scope.clicResetFull = function(){
+        $scope.selectedDays2 = [];
+        multipleDatePickerBroadcast.resetOrder('myId');
+    };
+
     $scope.oneDayOff = [moment().date(14).valueOf()];
     $scope.highlightDays = [
         {date: moment().date(2).valueOf(), css: 'holiday', selectable: false,title: 'Holiday time !'},
@@ -24,4 +33,5 @@ app.controller('demoController', ['$scope', function ($scope) {
         {date: moment().date(25).valueOf(), css: 'birthday', selectable: true,title: 'I\'m thir... i\'m 28, seriously, I mean ...'}
     ];
     $scope.selectedDays = [moment().date(4).valueOf(), moment().date(5).valueOf(), moment().date(8).valueOf()];
+    $scope.selectedDays2 = [moment().date(4).valueOf(), moment().date(5).valueOf(), moment().date(8).valueOf()];
 }]);
