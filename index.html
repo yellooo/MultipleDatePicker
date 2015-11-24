@@ -113,11 +113,67 @@
         <hr>
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Show previous/next month days</h4>
 
-        <p>You can show previous and next months days with this option, false by default</p>
-        <p class="warning">All events are not triggered on those dates</p>
-        <pre><code>&lt;multiple-date-picker show-days-of-surrounding-months="true" /&gt;</code></pre>
+        <p>You can show previous and next months days with this option. You can combine all 3 options to fit your needs.</p>
+        <p>
+            <ul>
+                <li>showDaysOfSurroundingMonths : if true empty boxes will be filled, default is false</li>
+                <li>cssDaysOfSurroundingMonths : applied css class to empty boxes. You can chain like 'myclass1 myclass2 myclass3', default is 'picker-empty'</li>
+                <li>fireEventsForDaysOfSurroundingMonths : fire events on empty boxes, default is false</li>
+            </ul>
+        </p>
+        <pre><code>&lt;multiple-date-picker
+    show-days-of-surrounding-months="true"
+    fire-events-for-days-of-surrounding-months="true"
+    css-days-of-surrounding-months="'picker-other-month-custom'"
+    highlight-days="highlightDays"
+    /&gt;</code></pre>
+        <p>We use custom (and pretty ugly I know) css to customize previous/next months dates and highlight days</p>
+        <pre><code>.picker-day.picker-other-month-custom{
+        background-color: #d17357;
+        color: #fff;
+    }
+
+    .picker-day.picker-other-month-custom:hover{
+        cursor: pointer;
+        background-color: #ae5d4a;
+        color: #fff;
+    }
+
+    .picker-day.picker-other-month-custom.picker-selected{
+        background-color: #9c5244;
+    }
+
+    .picker-day.holiday{
+        background-color: #00ffa2;
+        color: #fff;
+    }
+
+    .picker-day.holiday.picker-selected{
+        background-color: #00ae69;
+        color: #fff;
+    }
+
+    .picker-day.holiday.picker-off{
+        background-color: #00a267;
+        color: #fff;
+        cursor: default;
+    }
+
+    .picker-day.holiday:not(.picker-off):hover{
+        background-color: #00e795;
+        color: #fff;
+    }
+
+
+    .picker-day.birthday:not(.picker-selected){
+    background-color: #ded100;
+    color: #000;
+}</code></pre>
         <div>
-            <multiple-date-picker show-days-of-surrounding-months="true"/>
+            <multiple-date-picker show-days-of-surrounding-months="true"
+                                  fire-events-for-days-of-surrounding-months="true"
+                                  css-days-of-surrounding-months="'picker-other-month-custom'"
+                                  highlight-days="highlightDays"/>
         </div>
         <hr>
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Click callback</h4>

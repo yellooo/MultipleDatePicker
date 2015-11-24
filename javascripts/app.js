@@ -28,6 +28,7 @@ app.controller('demoController', ['$scope', 'multipleDatePickerBroadcast', funct
 
     $scope.oneDayOff = [moment().date(14).valueOf()];
     $scope.highlightDays = [
+        {date: moment().date(0).valueOf(), css: 'holiday', selectable: true,title: 'Holiday time !'},
         {date: moment().date(2).valueOf(), css: 'holiday', selectable: false,title: 'Holiday time !'},
         {date: moment().date(14).valueOf(), css: 'off', selectable: false,title: 'We don\'t work today'},
         {date: moment().date(25).valueOf(), css: 'birthday', selectable: true,title: 'I\'m thir... i\'m 28, seriously, I mean ...'}
