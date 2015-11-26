@@ -26,6 +26,7 @@ app.controller('demoController', ['$scope', 'multipleDatePickerBroadcast', funct
         multipleDatePickerBroadcast.resetOrder('myId');
     };
 
+    $scope.today = moment();
     $scope.oneDayOff = [moment().date(14).valueOf()];
     $scope.highlightDays = [
         {date: moment().date(0).valueOf(), css: 'holiday', selectable: true,title: 'Holiday time !'},
