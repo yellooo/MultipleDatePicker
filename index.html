@@ -93,6 +93,15 @@
         <h3><a class="anchor"><span class="octicon octicon-link"></span></a>Add some options</h3>
 
         <p>You can give options directly in the html.</p>
+        <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Change current month</h4>
+
+        <p>You can change current month when you want</p>
+        <pre><code>&lt;multiple-date-picker month="myMonth" /&gt;</code></pre>
+        <pre><code>$scope.myMonth = moment().add(3, 'MONTH');</code></pre>
+        <div>
+            <multiple-date-picker month="myMonth"/>
+        </div>
+        <hr>
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>First day of week</h4>
 
         <p>By default Monday will be the first day of week, but you can set calendar to use Sunday as first day of
