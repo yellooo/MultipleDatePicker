@@ -26,6 +26,15 @@ app.controller('demoController', ['$scope', 'multipleDatePickerBroadcast', funct
         multipleDatePickerBroadcast.resetOrder('myId');
     };
 
+    $scope.oneDaySelectionOnly = function (event, date) {
+        event.preventDefault();
+        $scope.selectedDays3 = [];
+        if(!date.selected){
+            $scope.selectedDays3.push(date);
+        }
+        multipleDatePickerBroadcast.resetOrder('myId2');
+    };
+
     $scope.today = moment();
     $scope.oneDayOff = [moment().date(14).valueOf()];
     $scope.myMonth = moment().add(3, 'MONTH');
@@ -37,4 +46,5 @@ app.controller('demoController', ['$scope', 'multipleDatePickerBroadcast', funct
     ];
     $scope.selectedDays = [moment().date(4).valueOf(), moment().date(5).valueOf(), moment().date(8).valueOf()];
     $scope.selectedDays2 = [moment().date(4).valueOf(), moment().date(5).valueOf(), moment().date(8).valueOf()];
+    $scope.selectedDays3 = [];
 }]);

@@ -383,6 +383,27 @@ $scope.clicResetFull = function(){
         </div>
         <hr>
 
+        <h4><a class="anchor"><span class="octicon octicon-link"></span></a>One day selection only</h4>
+
+        <p>You want user to be able to select only one day, that's not a problem. Try to select multiple days, you'll not be able. Yeah we call it MAGIC !</p>
+
+        <pre><code>$scope.selectedDays3 = [];
+
+$scope.oneDaySelectionOnly = function (event, date) {
+    event.preventDefault();
+    $scope.selectedDays3 = [];
+    if(!date.selected){ //selected not affected yet, so if day is selected, selected property will be false
+        $scope.selectedDays3.push(date);
+    }
+    multipleDatePickerBroadcast.resetOrder('myId2');
+};</code></pre>
+
+        <pre><code>&lt;multiple-date-picker calendar-id="'myId2'" days-selected="selectedDays3" day-click="oneDaySelectionOnly"/&gt;</code></pre>
+        <div>
+            <multiple-date-picker calendar-id="'myId2'" days-selected="selectedDays3" day-click="oneDaySelectionOnly"/>
+        </div>
+        <hr>
+
         <h4><a class="anchor"><span class="octicon octicon-link"></span></a>Let's get serious</h4>
 
         <p>You can (of course) use all options at the same time.</p>
