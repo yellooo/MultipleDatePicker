@@ -115,7 +115,11 @@ angular.module('multipleDatePicker', [])
                  * */
                 disableDaysAfter: '=?'
             },
-            template: '<div class="multiple-date-picker">' +
+            template: '<div class="multiple-date-wrapper">' +
+            '<input type="text" ng-model="currentDates" />' +
+            '<button class="icon-calendar"></button>' +
+            '<div class="tooltip-picker">' +
+            '<div class="multiple-date-picker">' +
             '<div class="picker-top-row">' +
             '<div class="text-center picker-navigate picker-navigate-left-arrow" ng-class="{\'disabled\':disableBackButton}" ng-click="previousMonth()">&lt;</div>' +
             '<div class="text-center picker-month">{{month.format(\'MMMM YYYY\')}}</div>' +
@@ -126,6 +130,8 @@ angular.module('multipleDatePicker', [])
             '</div>' +
             '<div class="picker-days-row">' +
             '<div class="text-center picker-day {{!day.otherMonth || showDaysOfSurroundingMonths ? day.css : \'\'}} {{day.otherMonth ? cssDaysOfSurroundingMonths : \'\'}}" title="{{day.title}}" ng-repeat="day in days" ng-click="toggleDay($event, day)" ng-mouseover="hoverDay($event, day)" ng-mouseleave="dayHover($event, day)" ng-class="{\'picker-selected\':day.selected, \'picker-off\':!day.selectable, \'today\':day.today,\'past\':day.past,\'future\':day.future, \'picker-other-month\':day.otherMonth}">{{day ? day.otherMonth && !showDaysOfSurroundingMonths ? \'&nbsp;\' : day.format(\'D\') : \'\'}}</div>' +
+            '</div>' +
+            '</div>' +
             '</div>' +
             '</div>',
             link: function (scope) {

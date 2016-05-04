@@ -17,6 +17,26 @@
   text-align: center;
 }
 
+.multiple-date-wrapper {
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .tooltip-picker {
+    position: absolute;
+    left: 0;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
 .multiple-date-picker{
   user-select: none;
 }
